@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Akhil/Documents/GitHub/BookClub/app/src/main/res/layout/activity_book_detail.xml" value="0.21510416666666668" />
+        <entry key="..\:/Users/Akhil/Documents/GitHub/BookClub/app/src/main/res/layout/activity_favorites.xml" value="0.322463768115942" />
+        <entry key="..\:/Users/Akhil/Documents/GitHub/BookClub/app/src/main/res/layout/activity_main.xml" value="0.322463768115942" />
+        <entry key="..\:/Users/Akhil/Documents/GitHub/BookClub/app/src/main/res/layout/activity_search.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/Akhil/Documents/GitHub/BookClub/app/src/main/res/layout/content_book_detail.xml" value="0.21510416666666668" />
+        <entry key="..\:/Users/Akhil/Documents/GitHub/BookClub/app/src/main/res/layout/content_main.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/Akhil/Documents/GitHub/BookClub/app/src/main/res/layout/content_search.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/Akhil/Documents/GitHub/BookClub/app/src/main/res/layout/fragment_first.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/Akhil/Documents/GitHub/BookClub/app/src/main/res/layout/fragment_first2.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/Akhil/Documents/GitHub/BookClub/app/src/main/res/layout/fragment_second.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/Akhil/Documents/GitHub/BookClub/app/src/main/res/layout/fragment_second2.xml" value="0.16614583333333333" />
         <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.369" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.36875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.36875" />

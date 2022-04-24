@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">BookClub</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_book_detail">BookDetailActivity</string>
+    <string name="title_activity_messaging">MessagingActivity</string>
+    <string name="title_activity_location">LocationActivity</string>
+    <string name="title_activity_blogpost">BlogpostActivity</string>
+    <string name="title_activity_direct_messaging">DirectMessagingActivity</string>
+    <string name="title_activity_comments">CommentsActivity</string>
 </resources>

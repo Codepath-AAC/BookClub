@@ -15,6 +15,41 @@
         android:theme="@style/Theme.BookClub"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CommentsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_comments"
+            android:theme="@style/Theme.BookClub.NoActionBar" />
+        <activity
+            android:name=".DirectMessagingActivity"
+            android:exported="false"
+            android:label="@string/title_activity_direct_messaging"
+            android:theme="@style/Theme.BookClub.NoActionBar" />
+        <activity
+            android:name=".BlogpostActivity"
+            android:exported="false"
+            android:label="@string/title_activity_blogpost"
+            android:theme="@style/Theme.BookClub.NoActionBar" />
+        <activity
+            android:name=".LocationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_location"
+            android:theme="@style/Theme.BookClub.NoActionBar" />
+        <activity
+            android:name=".MessagingActivity"
+            android:exported="false"
+            android:label="@string/title_activity_messaging"
+            android:theme="@style/Theme.BookClub.NoActionBar" />
+        <activity
+            android:name=".BookDetailActivity"
+            android:exported="false"
+            android:label="@string/title_activity_book_detail"
+            android:theme="@style/Theme.BookClub.NoActionBar" />
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false"
+            android:label="@string/title_activity_search"
+            android:theme="@style/Theme.BookClub.NoActionBar" />
+        <activity
             android:name=".FavoritesActivity"
             android:exported="false" />
         <activity
