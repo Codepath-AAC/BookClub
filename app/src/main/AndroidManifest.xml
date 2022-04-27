@@ -15,6 +15,9 @@
         android:theme="@style/Theme.BookClub"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".HomeScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".CommentsActivity"
             android:exported="false"
             android:label="@string/title_activity_comments"
@@ -58,17 +61,6 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.codepath.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/fileprovider" />
-        </provider>
-
         <activity
             android:name=".MainActivity"
             android:exported="false" />

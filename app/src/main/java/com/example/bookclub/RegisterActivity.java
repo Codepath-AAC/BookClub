@@ -1,14 +1,14 @@
 package com.example.bookclub;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -21,20 +21,17 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText etUsername;
     private EditText etPassword;
     private EditText etEmail;
-    private Button btnSignUp;
+    private Button btnSignUp2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        if (ParseUser.getCurrentUser() != null) {
-            goMainActivity();
-        }
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         etEmail = findViewById(R.id.etEmail);
-        btnSignUp = findViewById(R.id.btnSignUp);
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        btnSignUp2 = findViewById(R.id.btnSignUp2);
+        btnSignUp2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i(TAG, "onClick signup button");
@@ -44,15 +41,6 @@ public class RegisterActivity extends AppCompatActivity {
                 signUpUser(username, password, email);
             }
         });
-        /*btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "onClick login button");
-                String username = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
-                loginUser(username, password);
-            }
-        });*/
     }
     private void signUpUser(String username, String password, String email) {
         Log.i(TAG, "Attempting to sign up user" + username);
@@ -97,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
     private void goMainActivity() {
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, HomeScreenActivity.class);
         startActivity(i);
     }
 }

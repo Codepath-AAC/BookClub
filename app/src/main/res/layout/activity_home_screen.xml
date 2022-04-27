@@ -1,0 +1,128 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeScreenActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/trending"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="114dp"
+        android:text="Trending Now" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookListRv1"
+        android:layout_below="@+id/trending"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal" />
+
+    <TextView
+        android:id="@+id/rec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trending"
+        android:layout_marginTop="150dp"
+        android:text="Recommended" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookListRv2"
+        android:layout_below="@+id/rec"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal" />
+
+    <TextView
+        android:id="@+id/genre1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rec"
+        android:layout_marginTop="150dp"
+        android:text="Fantasy" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookListRv3"
+        android:layout_below="@+id/genre1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal" />
+
+    <TextView
+        android:id="@+id/genre2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/genre1"
+        android:layout_marginTop="150dp"
+        android:text="Mystery" />
+
+    <Button
+        android:id="@+id/favoritesBtn"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="228dp"
+        android:background="@drawable/round_button"
+        android:text="F" />
+
+    <Button
+        android:id="@+id/profileBtn"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="160dp"
+        android:background="@drawable/round_button"
+        android:text="P" />
+
+    <Button
+        android:id="@+id/messagesBtn"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="91dp"
+        android:background="@drawable/round_button"
+        android:text="M" />
+
+    <Button
+        android:id="@+id/mapsBtn"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="26dp"
+        android:background="@drawable/round_button"
+        android:text="L" />
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="86dp"
+        android:layout_height="99dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="0dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+</RelativeLayout>

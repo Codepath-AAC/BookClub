@@ -1,14 +1,14 @@
 package com.example.bookclub;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -37,10 +37,12 @@ public class LoginActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(i);
                 Log.i(TAG, "onClick signup button");
-                String username = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
-                signUpUser(username, password);
+//                String username = etUsername.getText().toString();
+//                String password = etPassword.getText().toString();
+//                signUpUser(username, password);
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -95,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     private void goMainActivity() {
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, HomeScreenActivity.class);
         startActivity(i);
     }
 }
