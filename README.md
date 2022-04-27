@@ -1,9 +1,7 @@
-# BookClub
+
 BookClub
 Original App Design Project - README Template
 ===
-
-# BookClub
 
 ## Table of Contents
 1. [Overview](#Overview)
