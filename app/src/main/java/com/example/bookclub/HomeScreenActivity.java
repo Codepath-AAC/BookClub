@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.bookclub.adapters.BookAdapter1;
 import com.example.bookclub.models.Book1;
@@ -26,7 +27,9 @@ import okhttp3.Headers;
 
 public class HomeScreenActivity extends AppCompatActivity
 {
-    Button messages, profile, maps, favorites;
+
+    public static final String TAG = "HomeScreenActivity";
+    Button blogpost, messages, profile, maps, favorites;
     private BookAdapter1 bookAdapter1;
     private BookClient client;
     private ArrayList<Book1> book1s;
@@ -40,6 +43,7 @@ public class HomeScreenActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         rvBooks1 = findViewById(R.id.bookListRv1);
+        blogpost = findViewById(R.id.blogBtn);
         messages = findViewById(R.id.messagesBtn);
         profile = findViewById(R.id.profileBtn);
         maps = findViewById(R.id.mapsBtn);
@@ -60,6 +64,14 @@ public class HomeScreenActivity extends AppCompatActivity
         rvBooks1.setAdapter(bookAdapter1);
 
         rvBooks1.setLayoutManager(new LinearLayoutManager(this));
+
+        blogpost.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent(HomeScreenActivity.this, BlogpostActivity.class);
+                startActivity(i);
+            }
+        });
 
         messages.setOnClickListener(new View.OnClickListener() {
             @Override

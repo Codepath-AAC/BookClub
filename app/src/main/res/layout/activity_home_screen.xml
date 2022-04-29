@@ -25,9 +25,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bookListRv1"
-        android:layout_below="@+id/trending"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_below="@+id/trending"
         android:layout_marginTop="1dp"
         android:orientation="horizontal" />
 
@@ -78,10 +78,21 @@
         android:layout_height="61dp"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="228dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="196dp"
         android:background="@drawable/round_button"
         android:text="F" />
+
+    <Button
+        android:id="@+id/blogBtn"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="260dp"
+        android:background="@drawable/round_button"
+        android:text="B" />
 
     <Button
         android:id="@+id/profileBtn"
@@ -89,8 +100,8 @@
         android:layout_height="61dp"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="130dp"
         android:background="@drawable/round_button"
         android:text="P" />
 
@@ -100,8 +111,8 @@
         android:layout_height="61dp"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="91dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="65dp"
         android:background="@drawable/round_button"
         android:text="M" />
 
@@ -111,8 +122,8 @@
         android:layout_height="61dp"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="26dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="2dp"
         android:background="@drawable/round_button"
         android:text="L" />
 
