@@ -76,7 +76,7 @@ public class HomeScreenActivity extends AppCompatActivity
         messages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(HomeScreenActivity.this, DirectMessagingActivity.class);
+                Intent i = new Intent(HomeScreenActivity.this, MessagingActivity.class);
                 startActivity(i);
             }
         });
