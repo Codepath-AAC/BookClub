@@ -51,6 +51,11 @@ public class HomeScreenActivity extends AppCompatActivity
 
 
         bookAdapter1 = new BookAdapter1(this, book1s);
+        rvBooks1.setAdapter(bookAdapter1);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rvBooks1.setLayoutManager(llm);
+
         bookAdapter1.setOnItemClickListener(new BookAdapter1.OnItemClickListener() {
             @Override
             public void onItemClick(View itemView, int position) {
@@ -61,12 +66,6 @@ public class HomeScreenActivity extends AppCompatActivity
             }
         });
 
-        rvBooks1.setAdapter(bookAdapter1);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rvBooks1.setLayoutManager(llm);
-
-
-        rvBooks1.setLayoutManager(new LinearLayoutManager(this));
 
         blogpost.setOnClickListener(new View.OnClickListener(){
             @Override

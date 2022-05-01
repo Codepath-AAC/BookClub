@@ -28,13 +28,13 @@ public class BookAdapter1 extends RecyclerView.Adapter<BookAdapter1.ViewHolder> 
 
     private ArrayList<String> bookNames = new ArrayList<>();
     private ArrayList<String> bookImageUrls = new ArrayList<>();
-    private ArrayList<Book1> books = new ArrayList<>();
-    private Context context;
+    private ArrayList<Book1> mBooks = new ArrayList<>();
+    private Context mContext;
     private OnItemClickListener listener;
 
-    public BookAdapter1(Context acontext, ArrayList<Book1> book1s) {
-        context = acontext;
-        books = book1s;
+    public BookAdapter1(Context context, ArrayList<Book1> book1s) {
+        mContext = context;
+        mBooks = book1s;
     }
 
     public interface OnItemClickListener {
@@ -43,11 +43,11 @@ public class BookAdapter1 extends RecyclerView.Adapter<BookAdapter1.ViewHolder> 
 
     public void setOnItemClickListener(OnItemClickListener listener) { this.listener = listener;}
 
-    public BookAdapter1(ArrayList<Book1> abooks, ArrayList<String> abookNames, ArrayList<String> abookImageUrls, Context acontext) {
+    public BookAdapter1(ArrayList<Book1> books, ArrayList<String> abookNames, ArrayList<String> abookImageUrls, Context context) {
         bookNames = abookNames;
-        books = abooks;
+        mBooks = books;
         bookImageUrls = abookImageUrls;
-        context = acontext;
+        mContext = context;
     }
 
     @NonNull
@@ -63,11 +63,11 @@ public class BookAdapter1 extends RecyclerView.Adapter<BookAdapter1.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BookAdapter1.ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: called");
 
-        Book1 book = books.get(position);
-        Glide.with(context)
+        Book1 book = mBooks.get(position);
+        Glide.with(mContext)
                 .asBitmap()
                 .load(bookImageUrls.get(position))
                .into(holder.bookCover);
@@ -77,17 +77,17 @@ public class BookAdapter1 extends RecyclerView.Adapter<BookAdapter1.ViewHolder> 
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "Clicked on a book");
-                Toast.makeText(context, bookNames.get(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, bookNames.get(position), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return books.size();
+        return mBooks.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView bookCover;
         TextView bookName;
@@ -106,5 +106,9 @@ public class BookAdapter1 extends RecyclerView.Adapter<BookAdapter1.ViewHolder> 
 
         }
 
+    }
+
+    private Context getContext() {
+        return mContext;
     }
 }
