@@ -74,56 +74,64 @@
 
     <Button
         android:id="@+id/favoritesBtn"
+        style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="61dp"
         android:layout_height="61dp"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="196dp"
+        android:layout_marginEnd="186dp"
         android:background="@drawable/round_button"
-        android:text="F" />
+        app:icon="@drawable/ic_favorites" />
 
     <Button
         android:id="@+id/blogBtn"
+        style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="61dp"
         android:layout_height="61dp"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="260dp"
+        android:layout_marginEnd="248dp"
         android:background="@drawable/round_button"
-        android:text="B" />
+        app:icon="@drawable/ic_blog" />
 
     <Button
         android:id="@+id/profileBtn"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        app:icon="@drawable/ic_profile"
         android:layout_width="61dp"
         android:layout_height="61dp"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="130dp"
+        android:layout_marginEnd="124dp"
         android:background="@drawable/round_button"
         android:text="P" />
 
     <Button
         android:id="@+id/messagesBtn"
         android:layout_width="61dp"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        app:icon="@drawable/ic_messages"
         android:layout_height="61dp"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="65dp"
+        android:layout_marginEnd="62dp"
         android:background="@drawable/round_button"
         android:text="M" />
 
     <Button
         android:id="@+id/mapsBtn"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        app:icon="@drawable/ic_locations"
         android:layout_width="61dp"
         android:layout_height="61dp"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginEnd="0dp"
         android:background="@drawable/round_button"
         android:text="L" />
 

@@ -12,7 +12,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.bookclub.adapters.BookAdapter1;
 import com.example.bookclub.models.Book1;
@@ -50,6 +49,7 @@ public class HomeScreenActivity extends AppCompatActivity
         favorites = findViewById(R.id.favoritesBtn);
         book1s = new ArrayList<>();
 
+
         bookAdapter1 = new BookAdapter1(this, book1s);
         bookAdapter1.setOnItemClickListener(new BookAdapter1.OnItemClickListener() {
             @Override
@@ -62,6 +62,9 @@ public class HomeScreenActivity extends AppCompatActivity
         });
 
         rvBooks1.setAdapter(bookAdapter1);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rvBooks1.setLayoutManager(llm);
+
 
         rvBooks1.setLayoutManager(new LinearLayoutManager(this));
 

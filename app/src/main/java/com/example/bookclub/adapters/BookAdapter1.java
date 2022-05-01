@@ -30,7 +30,6 @@ public class BookAdapter1 extends RecyclerView.Adapter<BookAdapter1.ViewHolder> 
     private ArrayList<String> bookImageUrls = new ArrayList<>();
     private ArrayList<Book1> books = new ArrayList<>();
     private Context context;
-
     private OnItemClickListener listener;
 
     public BookAdapter1(Context acontext, ArrayList<Book1> book1s) {
@@ -68,14 +67,12 @@ public class BookAdapter1 extends RecyclerView.Adapter<BookAdapter1.ViewHolder> 
         Log.d(TAG, "onBindViewHolder: called");
 
         Book1 book = books.get(position);
-//
-//        Glide.with(context)
-//                .asBitmap()
-//                .load(bookImageUrls.get(position))
-//                .into(holder.bookCover);
+        Glide.with(context)
+                .asBitmap()
+                .load(bookImageUrls.get(position))
+               .into(holder.bookCover);
 
         holder.bookName.setText(book.getTitle());
-
         holder.bookCover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,7 +91,6 @@ public class BookAdapter1 extends RecyclerView.Adapter<BookAdapter1.ViewHolder> 
 
         ImageView bookCover;
         TextView bookName;
-
 
         public ViewHolder(final View itemView, final OnItemClickListener clickListener) {
             super(itemView);
