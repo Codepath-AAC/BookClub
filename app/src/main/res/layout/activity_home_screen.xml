@@ -15,6 +15,8 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+
+
     <TextView
         android:id="@+id/trending"
         android:layout_width="wrap_content"

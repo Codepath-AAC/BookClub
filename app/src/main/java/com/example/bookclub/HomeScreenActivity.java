@@ -41,6 +41,7 @@ public class HomeScreenActivity extends AppCompatActivity
         setContentView(R.layout.activity_home_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         rvBooks1 = findViewById(R.id.bookListRv1);
         blogpost = findViewById(R.id.blogBtn);
         messages = findViewById(R.id.messagesBtn);
@@ -49,12 +50,7 @@ public class HomeScreenActivity extends AppCompatActivity
         favorites = findViewById(R.id.favoritesBtn);
         book1s = new ArrayList<>();
 
-
         bookAdapter1 = new BookAdapter1(this, book1s);
-        rvBooks1.setAdapter(bookAdapter1);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.HORIZONTAL);
-        rvBooks1.setLayoutManager(llm);
 
         bookAdapter1.setOnItemClickListener(new BookAdapter1.OnItemClickListener() {
             @Override
@@ -65,6 +61,13 @@ public class HomeScreenActivity extends AppCompatActivity
                         Toast.LENGTH_SHORT).show();
             }
         });
+        rvBooks1.setAdapter(bookAdapter1);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rvBooks1.setLayoutManager(llm);
+
+        fetchBooks("Oscar Wilde");
+
 
 
         blogpost.setOnClickListener(new View.OnClickListener(){
@@ -108,6 +111,7 @@ public class HomeScreenActivity extends AppCompatActivity
         });
     }
 
+
     private void fetchBooks(String query) {
         client = new BookClient();
         client.getBooks(query, new JsonHttpResponseHandler() {
@@ -122,10 +126,10 @@ public class HomeScreenActivity extends AppCompatActivity
                         // Parse json array into array of model objects
                         final ArrayList<Book1> books = Book1.fromJson(docs);
                         // Remove all books from the adapter
-                        books.clear();
+                        book1s.clear();
                         // Load model objects into the adapter
                         for (Book1 book : books) {
-                            books.add(book); // add book through the adapter
+                            book1s.add(book); // add book through the adapter
                         }
                         bookAdapter1.notifyDataSetChanged();
                     }

@@ -1,12 +1,11 @@
 package com.example.bookclub.adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
-import android.view.ContentInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,12 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.bookclub.HomeScreenActivity;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.bookclub.R;
 import com.example.bookclub.models.Book1;
 
 import java.util.ArrayList;
-import java.util.function.BiPredicate;
 
 public class BookAdapter1 extends RecyclerView.Adapter<BookAdapter1.ViewHolder> {
 
@@ -67,17 +65,18 @@ public class BookAdapter1 extends RecyclerView.Adapter<BookAdapter1.ViewHolder> 
         Log.d(TAG, "onBindViewHolder: called");
 
         Book1 book = mBooks.get(position);
-        Glide.with(mContext)
-                .asBitmap()
-                .load(bookImageUrls.get(position))
-               .into(holder.bookCover);
+        Glide.with(getContext())
+                .load(Uri.parse(book.getCoverUrl()))
+                .apply(new RequestOptions().placeholder(R.drawable.ic_launcher_background))
+                .into(holder.bookCover);
+
 
         holder.bookName.setText(book.getTitle());
         holder.bookCover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "Clicked on a book");
-                Toast.makeText(mContext, bookNames.get(position), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, bookNames.get(position), Toast.LENGTH_SHORT).show();
             }
         });
     }
