@@ -1,6 +1,7 @@
 package com.example.bookclub;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.ui.AppBarConfiguration;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.bookclub.databinding.ActivityBookDetailBinding;
 
 public class BookDetailActivity extends AppCompatActivity {
@@ -37,9 +40,14 @@ public class BookDetailActivity extends AppCompatActivity {
 
         String title = getIntent().getStringExtra("title");
         String author = getIntent().getStringExtra("author");
+        String image = getIntent().getStringExtra("image");
         getSupportActionBar().setTitle(title);
         tvTitle.setText(title);
         tvAuthor.setText(author);
+        Glide.with(BookDetailActivity.this)
+                .load(Uri.parse(image))
+                .apply(new RequestOptions().placeholder(R.drawable.ic_launcher_background))
+                .into(ivBookCover);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

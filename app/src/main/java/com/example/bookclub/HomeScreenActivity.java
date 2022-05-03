@@ -68,8 +68,10 @@ public class HomeScreenActivity extends AppCompatActivity
                 Book1 book1 = book1s.get(position);
                 String title = book1.getTitle();
                 String auth = book1.getAuthor();
+                String image = book1.getCoverUrl();
                 intent.putExtra("title", title);
                 intent.putExtra("author", auth);
+                intent.putExtra("image", image);
                 startActivity(intent);
             }
         });
