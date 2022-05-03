@@ -1,21 +1,24 @@
 package com.example.bookclub;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.example.bookclub.databinding.ActivityBookDetailBinding;
 
 public class BookDetailActivity extends AppCompatActivity {
+
+    private ImageView ivBookCover;
+    private TextView tvTitle, tvAuthor;
+    private Button backBtn;
+    private Toolbar toolbar;
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityBookDetailBinding binding;
@@ -23,29 +26,55 @@ public class BookDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_book_detail);
 
-        binding = ActivityBookDetailBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        backBtn = findViewById(R.id.backbtn);
+        ivBookCover = findViewById(R.id.ivBookCover);
+        tvTitle = findViewById(R.id.tvTitle);
+        tvAuthor = findViewById(R.id.tvAuthor);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        setSupportActionBar(binding.toolbar);
+        String title = getIntent().getStringExtra("title");
+        String author = getIntent().getStringExtra("author");
+        getSupportActionBar().setTitle(title);
+        tvTitle.setText(title);
+        tvAuthor.setText(author);
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_book_detail);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Intent i = new Intent(BookDetailActivity.this, HomeScreenActivity.class);
+                startActivity(i);
             }
         });
+
+//        binding = ActivityBookDetailBinding.inflate(getLayoutInflater());
+//       setContentView(binding.getRoot());
+//       setSupportActionBar(binding.toolbar);
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_book_detail);
+//        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+//
+//        binding.fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+//    }
+//
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_book_detail);
+//        return NavigationUI.navigateUp(navController, appBarConfiguration)
+//                || super.onSupportNavigateUp();
+
+
+
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_book_detail);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
+
+
 }

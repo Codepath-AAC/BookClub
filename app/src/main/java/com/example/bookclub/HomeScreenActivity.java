@@ -30,9 +30,11 @@ public class HomeScreenActivity extends AppCompatActivity
     public static final String TAG = "HomeScreenActivity";
     Button blogpost, messages, profile, maps, favorites;
     private BookAdapter1 bookAdapter1;
+    //private BookAdapter2 bookAdapter2;
     private BookClient client;
     private ArrayList<Book1> book1s;
-    private RecyclerView rvBooks1;
+    //private ArrayList<Book2> book2s;
+    private RecyclerView rvBooks1, rvBooks2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,12 +45,14 @@ public class HomeScreenActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         rvBooks1 = findViewById(R.id.bookListRv1);
+        rvBooks2 = findViewById(R.id.bookListRv2);
         blogpost = findViewById(R.id.blogBtn);
         messages = findViewById(R.id.messagesBtn);
         profile = findViewById(R.id.profileBtn);
         maps = findViewById(R.id.mapsBtn);
         favorites = findViewById(R.id.favoritesBtn);
         book1s = new ArrayList<>();
+        //book2s = new ArrayList<>();
 
         bookAdapter1 = new BookAdapter1(this, book1s);
 
@@ -59,6 +63,14 @@ public class HomeScreenActivity extends AppCompatActivity
                         HomeScreenActivity.this,
                         "An item at position " + position + " clicked!",
                         Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(HomeScreenActivity.this, BookDetailActivity.class);
+                Book1 book1 = book1s.get(position);
+                String title = book1.getTitle();
+                String auth = book1.getAuthor();
+                intent.putExtra("title", title);
+                intent.putExtra("author", auth);
+                startActivity(intent);
             }
         });
         rvBooks1.setAdapter(bookAdapter1);
@@ -66,9 +78,7 @@ public class HomeScreenActivity extends AppCompatActivity
         llm.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvBooks1.setLayoutManager(llm);
 
-        fetchBooks("Oscar Wilde");
-
-
+        fetchBooks("Trending");
 
         blogpost.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -147,4 +157,42 @@ public class HomeScreenActivity extends AppCompatActivity
             }
         });
     }
+
+//    private void fetchBooks2(String query) {
+//        client = new BookClient();
+//        client.getBooks(query, new JsonHttpResponseHandler() {
+//
+//            @Override
+//            public void onSuccess(int statusCode, Headers headers, JSON response) {
+//                try {
+//                    JSONArray docs;
+//                    if (response != null) {
+//                        // Get the docs json array
+//                        docs = response.jsonObject.getJSONArray("docs");
+//                        // Parse json array into array of model objects
+//                        final ArrayList<Book2> books = Book2.fromJson(docs);
+//                        // Remove all books from the adapter
+//                        book2s.clear();
+//                        // Load model objects into the adapter
+//                        for (Book2 book : books) {
+//                            book2s.add(book); // add book through the adapter
+//                        }
+//                        bookAdapter2.notifyDataSetChanged();
+//                    }
+//                } catch (JSONException e) {
+//                    // Invalid JSON format, show appropriate error.
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(int statusCode, Headers headers, String responseString, Throwable throwable) {
+//                // Handle failed request here
+//                Log.e(HomeScreenActivity.class.getSimpleName(),
+//                        "Request failed with code " + statusCode + ". Response message: " + responseString);
+//            }
+//        });
+
+
+
 }
