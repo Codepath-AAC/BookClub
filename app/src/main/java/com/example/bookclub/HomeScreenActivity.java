@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.bookclub.adapters.BookAdapter1;
 import com.example.bookclub.adapters.BookAdapter2;
+import com.example.bookclub.adapters.BookAdapter3;
 import com.example.bookclub.models.Book1;
 import com.example.bookclub.models.Book2;
+import com.example.bookclub.models.Book3;
 import com.example.bookclub.net.BookClient;
 
 import org.json.JSONArray;
@@ -32,10 +34,12 @@ public class HomeScreenActivity extends AppCompatActivity {
     Button blogpost, messages, profile, maps, favorites;
     private BookAdapter1 bookAdapter1;
     private BookAdapter2 bookAdapter2;
+    private BookAdapter3 bookAdapter3;
     private BookClient client;
     private ArrayList<Book1> book1s;
     private ArrayList<Book2> book2s;
-    private RecyclerView rvBooks1, rvBooks2;
+    private ArrayList<Book3> book3s;
+    private RecyclerView rvBooks1, rvBooks2, rvBooks3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         rvBooks1 = findViewById(R.id.bookListRv1);
         rvBooks2 = findViewById(R.id.bookListRv2);
+        rvBooks3 = findViewById(R.id.bookListRv3);
         blogpost = findViewById(R.id.blogBtn);
         messages = findViewById(R.id.messagesBtn);
         profile = findViewById(R.id.profileBtn);
@@ -53,6 +58,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         favorites = findViewById(R.id.favoritesBtn);
         book1s = new ArrayList<>();
         book2s = new ArrayList<>();
+        book3s = new ArrayList<>();
 
         bookAdapter1 = new BookAdapter1(this, book1s);
 
@@ -110,6 +116,34 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         fetchBooks2("Oscar Wilde");
 
+
+        bookAdapter3 = new BookAdapter3(this, book3s);
+
+        bookAdapter3.setOnItemClickListener(new BookAdapter3.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, int position) {
+                Toast.makeText(
+                        HomeScreenActivity.this,
+                        "An item at position " + position + " clicked!",
+                        Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(HomeScreenActivity.this, BookDetailActivity.class);
+                Book3 book3 = book3s.get(position);
+                String title = book3.getTitle();
+                String auth = book3.getAuthor();
+                String image = book3.getCoverUrl();
+                intent.putExtra("title", title);
+                intent.putExtra("author", auth);
+                intent.putExtra("image", image);
+                startActivity(intent);
+            }
+        });
+        rvBooks3.setAdapter(bookAdapter3);
+        LinearLayoutManager llm3 = new LinearLayoutManager(this);
+        llm3.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rvBooks3.setLayoutManager(llm3);
+
+        fetchBooks3("Fantasy");
 
         blogpost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -209,6 +243,44 @@ public class HomeScreenActivity extends AppCompatActivity {
                             book2s.add(book); // add book through the adapter
                         }
                         bookAdapter2.notifyDataSetChanged();
+                    }
+                } catch (JSONException e) {
+                    // Invalid JSON format, show appropriate error.
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Headers headers, String responseString, Throwable throwable) {
+                // Handle failed request here
+                Log.e(HomeScreenActivity.class.getSimpleName(),
+                        "Request failed with code " + statusCode + ". Response message: " + responseString);
+            }
+        });
+
+
+    }
+
+    private void fetchBooks3(String query) {
+        client = new BookClient();
+        client.getBooks(query, new JsonHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Headers headers, JSON response) {
+                try {
+                    JSONArray docs;
+                    if (response != null) {
+                        // Get the docs json array
+                        docs = response.jsonObject.getJSONArray("docs");
+                        // Parse json array into array of model objects
+                        final ArrayList<Book3> books = Book3.fromJson(docs);
+                        // Remove all books from the adapter
+                        book3s.clear();
+                        // Load model objects into the adapter
+                        for (Book3 book : books) {
+                            book3s.add(book); // add book through the adapter
+                        }
+                        bookAdapter3.notifyDataSetChanged();
                     }
                 } catch (JSONException e) {
                     // Invalid JSON format, show appropriate error.
