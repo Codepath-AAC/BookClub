@@ -30,15 +30,15 @@ BookClub is a platform where book-lovers can learn about new books to read based
 - [x] User can create a new account with personal information and book preferences.
 - [x] User can login to existing account
 - [x] User can view the home page which will consist of currently trending books, recommended books for the user, and books categorized by genre.
-- [] User will be able to click on any book to see a detail view of the book
-- [] User will be able to use a search bar at the top of the screen to search for specific books.
-- [x]  User will be able to navigate to all other screens from the homepage.
-- [] Consists of the book title, author, summary, rating,and user reviews.   
-- [] User will be able to write and post their own review.  
-- [] User will be able to view and edit all pre-set profile information and book preferences.
-- [] User will be able to view all their favorited books  
-- [] User can unfavorite books from list
-- []Tapping on book will lead to its detail view.  
+- [x] User will be able to click on any book to see a detail view of the book
+- [ ] User will be able to use a search bar at the top of the screen to search for specific books.
+- [x] User will be able to navigate to all other screens from the homepage.
+- [ ] Consists of the book title, author, summary, rating,and user reviews.   
+- [ ] User will be able to write and post their own review.  
+- [ ] User will be able to view and edit all pre-set profile information and book preferences.
+- [ ] User will be able to view all their favorited books  
+- [ ] User can unfavorite books from list
+- [x] Tapping on book will lead to its detail view.  
 
 **Optional Nice-to-have Stories**
 
