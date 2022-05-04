@@ -16,13 +16,12 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-
     <TextView
         android:id="@+id/trending"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:layout_marginTop="114dp"
+        android:layout_marginTop="100dp"
         android:text="Trending Now" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -75,6 +74,14 @@
         android:layout_below="@id/genre1"
         android:layout_marginTop="150dp"
         android:text="Mystery" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookListRv4"
+        android:layout_below="@+id/genre2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal" />
 
     <Button
         android:id="@+id/favoritesBtn"
