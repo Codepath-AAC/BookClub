@@ -9,11 +9,11 @@
         <entry key="app/src/main/res/layout/activity_blogpost.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_book_detail.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_favorites.xml" value="0.21822916666666667" />
-        <entry key="app/src/main/res/layout/activity_home_screen.xml" value="0.21739130434782608" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.36875" />
+        <entry key="app/src/main/res/layout/activity_home_screen.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.14" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.36875" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.14" />
         <entry key="app/src/main/res/layout/fragment_second7.xml" value="0.1" />
         <entry key="app/src/main/res/layout/layout_bookitem.xml" value="0.20567626953124996" />
         <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.67" />
