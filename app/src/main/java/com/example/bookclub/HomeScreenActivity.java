@@ -31,6 +31,7 @@ import com.example.bookclub.models.Book6;
 import com.example.bookclub.models.Book7;
 import com.example.bookclub.net.BookClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.parse.ParseUser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -606,7 +607,19 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_home, menu);
-        MenuItem logOutItem = menu.findItem(R.id.action_logout);
+
         return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.action_logout:
+                ParseUser.logOut();
+                Intent i = new Intent(HomeScreenActivity.this, LoginActivity.class);
+                startActivity(i);
+                return true;
+            default:
+                return super.onOptionsItemSelected(menuItem);
+        }
     }
 }
