@@ -3,6 +3,9 @@ BookClub
 Original App Design Project - README Template
 ===
 
+![Final Animation2](https://user-images.githubusercontent.com/50122980/166740207-48a91ef7-c3f0-42d6-a68e-d22b813e0837.gif)
+
+
 ## Table of Contents
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
