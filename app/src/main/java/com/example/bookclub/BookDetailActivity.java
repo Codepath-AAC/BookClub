@@ -16,6 +16,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.bookclub.databinding.ActivityBookDetailBinding;
+import com.example.bookclub.models.Book1;
+
+import java.util.ArrayList;
 
 public class BookDetailActivity extends AppCompatActivity {
 
@@ -23,6 +26,7 @@ public class BookDetailActivity extends AppCompatActivity {
     private TextView tvTitle, tvAuthor;
     private Button backBtn;
     private Toolbar toolbar;
+    private ArrayList<Book1> book1s;
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityBookDetailBinding binding;
@@ -64,6 +68,7 @@ public class BookDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.i("BookDetail", "FAVORITED");
                 ivFavorite.setImageResource(R.drawable.ic_favorites);
+
             }
         });
 

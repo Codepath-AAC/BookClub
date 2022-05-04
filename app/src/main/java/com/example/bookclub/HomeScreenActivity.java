@@ -3,12 +3,12 @@ package com.example.bookclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,7 +31,6 @@ import com.example.bookclub.models.Book6;
 import com.example.bookclub.models.Book7;
 import com.example.bookclub.net.BookClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.parse.ParseUser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -68,7 +67,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        bottomNavigationView = findViewById(R.id.bottomNavigation);
+        //bottomNavigationView = findViewById(R.id.bottomNavigation);
 
         rvBooks1 = findViewById(R.id.bookListRv1);
         rvBooks2 = findViewById(R.id.bookListRv2);
@@ -90,27 +89,28 @@ public class HomeScreenActivity extends AppCompatActivity {
         book6s = new ArrayList<>();
         book7s = new ArrayList<>();
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.action_logout:
-                        ParseUser.logOut();
-                        Intent i = new Intent(HomeScreenActivity.this, LoginActivity.class);
-                        startActivity(i);
-                    case R.id.action_profile:
-                        Intent i2 = new Intent(HomeScreenActivity.this, LoginActivity.class);
-                        startActivity(i2);
-                    case R.id.action_maps:
-                        Intent i3 = new Intent(HomeScreenActivity.this, LocationActivity.class);
-                        startActivity(i3);
-                    default:
-                        break;
-                }
 
-                return true;
-            }
-        });
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                switch (item.getItemId()) {
+//                    case R.id.action_logout:
+//                        ParseUser.logOut();
+//                        Intent i = new Intent(HomeScreenActivity.this, LoginActivity.class);
+//                        startActivity(i);
+//                    case R.id.action_profile:
+//                        Intent i2 = new Intent(HomeScreenActivity.this, LoginActivity.class);
+//                        startActivity(i2);
+//                    case R.id.action_maps:
+//                        Intent i3 = new Intent(HomeScreenActivity.this, LocationActivity.class);
+//                        startActivity(i3);
+//                    default:
+//                        break;
+//                }
+//
+//                return true;
+//            }
+//        });
 
         bookAdapter1 = new BookAdapter1(this, book1s);
 
@@ -604,4 +604,9 @@ public class HomeScreenActivity extends AppCompatActivity {
         });
     }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        MenuItem logOutItem = menu.findItem(R.id.action_logout);
+        return true;
+    }
 }
