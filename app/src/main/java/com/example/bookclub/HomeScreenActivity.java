@@ -17,10 +17,16 @@ import com.example.bookclub.adapters.BookAdapter1;
 import com.example.bookclub.adapters.BookAdapter2;
 import com.example.bookclub.adapters.BookAdapter3;
 import com.example.bookclub.adapters.BookAdapter4;
+import com.example.bookclub.adapters.BookAdapter5;
+import com.example.bookclub.adapters.BookAdapter6;
+import com.example.bookclub.adapters.BookAdapter7;
 import com.example.bookclub.models.Book1;
 import com.example.bookclub.models.Book2;
 import com.example.bookclub.models.Book3;
 import com.example.bookclub.models.Book4;
+import com.example.bookclub.models.Book5;
+import com.example.bookclub.models.Book6;
+import com.example.bookclub.models.Book7;
 import com.example.bookclub.net.BookClient;
 
 import org.json.JSONArray;
@@ -38,12 +44,18 @@ public class HomeScreenActivity extends AppCompatActivity {
     private BookAdapter2 bookAdapter2;
     private BookAdapter3 bookAdapter3;
     private BookAdapter4 bookAdapter4;
+    private BookAdapter5 bookAdapter5;
+    private BookAdapter6 bookAdapter6;
+    private BookAdapter7 bookAdapter7;
     private BookClient client;
     private ArrayList<Book1> book1s;
     private ArrayList<Book2> book2s;
     private ArrayList<Book3> book3s;
     private ArrayList<Book4> book4s;
-    private RecyclerView rvBooks1, rvBooks2, rvBooks3, rvBooks4;
+    private ArrayList<Book5> book5s;
+    private ArrayList<Book6> book6s;
+    private ArrayList<Book7> book7s;
+    private RecyclerView rvBooks1, rvBooks2, rvBooks3, rvBooks4, rvBooks5, rvBooks6, rvBooks7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +68,9 @@ public class HomeScreenActivity extends AppCompatActivity {
         rvBooks2 = findViewById(R.id.bookListRv2);
         rvBooks3 = findViewById(R.id.bookListRv3);
         rvBooks4 = findViewById(R.id.bookListRv4);
+        rvBooks5 = findViewById(R.id.bookListRv5);
+        rvBooks6 = findViewById(R.id.bookListRv6);
+        rvBooks7 = findViewById(R.id.bookListRv7);
         blogpost = findViewById(R.id.blogBtn);
         messages = findViewById(R.id.messagesBtn);
         profile = findViewById(R.id.profileBtn);
@@ -65,6 +80,9 @@ public class HomeScreenActivity extends AppCompatActivity {
         book2s = new ArrayList<>();
         book3s = new ArrayList<>();
         book4s = new ArrayList<>();
+        book5s = new ArrayList<>();
+        book6s = new ArrayList<>();
+        book7s = new ArrayList<>();
 
         bookAdapter1 = new BookAdapter1(this, book1s);
 
@@ -179,6 +197,95 @@ public class HomeScreenActivity extends AppCompatActivity {
         rvBooks4.setLayoutManager(llm4);
 
         fetchBooks4("Mystery");
+
+
+
+
+        bookAdapter5 = new BookAdapter5(this, book5s);
+
+        bookAdapter5.setOnItemClickListener(new BookAdapter5.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, int position) {
+                Toast.makeText(
+                        HomeScreenActivity.this,
+                        "An item at position " + position + " clicked!",
+                        Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(HomeScreenActivity.this, BookDetailActivity.class);
+                Book5 book5 = book5s.get(position);
+                String title = book5.getTitle();
+                String auth = book5.getAuthor();
+                String image = book5.getCoverUrl();
+                intent.putExtra("title", title);
+                intent.putExtra("author", auth);
+                intent.putExtra("image", image);
+                startActivity(intent);
+            }
+        });
+        rvBooks5.setAdapter(bookAdapter5);
+        LinearLayoutManager llm5 = new LinearLayoutManager(this);
+        llm5.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rvBooks5.setLayoutManager(llm5);
+
+        fetchBooks5("Classic");
+
+
+        bookAdapter6 = new BookAdapter6(this, book6s);
+
+        bookAdapter6.setOnItemClickListener(new BookAdapter6.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, int position) {
+                Toast.makeText(
+                        HomeScreenActivity.this,
+                        "An item at position " + position + " clicked!",
+                        Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(HomeScreenActivity.this, BookDetailActivity.class);
+                Book6 book6 = book6s.get(position);
+                String title = book6.getTitle();
+                String auth = book6.getAuthor();
+                String image = book6.getCoverUrl();
+                intent.putExtra("title", title);
+                intent.putExtra("author", auth);
+                intent.putExtra("image", image);
+                startActivity(intent);
+            }
+        });
+        rvBooks6.setAdapter(bookAdapter6);
+        LinearLayoutManager llm6 = new LinearLayoutManager(this);
+        llm6.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rvBooks6.setLayoutManager(llm6);
+
+        fetchBooks6("Romance");
+
+
+        bookAdapter7 = new BookAdapter7(this, book7s);
+
+        bookAdapter7.setOnItemClickListener(new BookAdapter7.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, int position) {
+                Toast.makeText(
+                        HomeScreenActivity.this,
+                        "An item at position " + position + " clicked!",
+                        Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(HomeScreenActivity.this, BookDetailActivity.class);
+                Book7 book7 = book7s.get(position);
+                String title = book7.getTitle();
+                String auth = book7.getAuthor();
+                String image = book7.getCoverUrl();
+                intent.putExtra("title", title);
+                intent.putExtra("author", auth);
+                intent.putExtra("image", image);
+                startActivity(intent);
+            }
+        });
+        rvBooks7.setAdapter(bookAdapter7);
+        LinearLayoutManager llm7 = new LinearLayoutManager(this);
+        llm7.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rvBooks7.setLayoutManager(llm7);
+
+        fetchBooks7("Comic");
 
         blogpost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -366,7 +473,110 @@ public class HomeScreenActivity extends AppCompatActivity {
                             "Request failed with code " + statusCode + ". Response message: " + responseString);
                 }
             });
+    }
+    private void fetchBooks5(String query) {
+        client = new BookClient();
+        client.getBooks(query, new JsonHttpResponseHandler() {
 
+            @Override
+            public void onSuccess(int statusCode, Headers headers, JSON response) {
+                try {
+                    JSONArray docs;
+                    if (response != null) {
+                        // Get the docs json array
+                        docs = response.jsonObject.getJSONArray("docs");
+                        // Parse json array into array of model objects
+                        final ArrayList<Book5> books = Book5.fromJson(docs);
+                        // Remove all books from the adapter
+                        book5s.clear();
+                        // Load model objects into the adapter
+                        for (Book5 book : books) {
+                            book5s.add(book); // add book through the adapter
+                        }
+                        bookAdapter5.notifyDataSetChanged();
+                    }
+                } catch (JSONException e) {
+                    // Invalid JSON format, show appropriate error.
+                    e.printStackTrace();
+                }
+            }
 
+            @Override
+            public void onFailure(int statusCode, Headers headers, String responseString, Throwable throwable) {
+                // Handle failed request here
+                Log.e(HomeScreenActivity.class.getSimpleName(),
+                        "Request failed with code " + statusCode + ". Response message: " + responseString);
+            }
+        });
+    }
+    private void fetchBooks6(String query) {
+        client = new BookClient();
+        client.getBooks(query, new JsonHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Headers headers, JSON response) {
+                try {
+                    JSONArray docs;
+                    if (response != null) {
+                        // Get the docs json array
+                        docs = response.jsonObject.getJSONArray("docs");
+                        // Parse json array into array of model objects
+                        final ArrayList<Book6> books = Book6.fromJson(docs);
+                        // Remove all books from the adapter
+                        book6s.clear();
+                        // Load model objects into the adapter
+                        for (Book6 book : books) {
+                            book6s.add(book); // add book through the adapter
+                        }
+                        bookAdapter6.notifyDataSetChanged();
+                    }
+                } catch (JSONException e) {
+                    // Invalid JSON format, show appropriate error.
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Headers headers, String responseString, Throwable throwable) {
+                // Handle failed request here
+                Log.e(HomeScreenActivity.class.getSimpleName(),
+                        "Request failed with code " + statusCode + ". Response message: " + responseString);
+            }
+        });
+    }
+    private void fetchBooks7(String query) {
+        client = new BookClient();
+        client.getBooks(query, new JsonHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Headers headers, JSON response) {
+                try {
+                    JSONArray docs;
+                    if (response != null) {
+                        // Get the docs json array
+                        docs = response.jsonObject.getJSONArray("docs");
+                        // Parse json array into array of model objects
+                        final ArrayList<Book7> books = Book7.fromJson(docs);
+                        // Remove all books from the adapter
+                        book7s.clear();
+                        // Load model objects into the adapter
+                        for (Book7 book : books) {
+                            book7s.add(book); // add book through the adapter
+                        }
+                        bookAdapter7.notifyDataSetChanged();
+                    }
+                } catch (JSONException e) {
+                    // Invalid JSON format, show appropriate error.
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Headers headers, String responseString, Throwable throwable) {
+                // Handle failed request here
+                Log.e(HomeScreenActivity.class.getSimpleName(),
+                        "Request failed with code " + statusCode + ". Response message: " + responseString);
+            }
+        });
     }
 }

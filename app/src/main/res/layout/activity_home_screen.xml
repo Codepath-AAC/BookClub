@@ -1,7 +1,12 @@
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<RelativeLayout
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeScreenActivity">
@@ -14,7 +19,6 @@
         android:minHeight="?attr/actionBarSize">
 
     </androidx.appcompat.widget.Toolbar>
-
 
     <TextView
         android:id="@+id/trending"
@@ -78,6 +82,54 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/bookListRv4"
         android:layout_below="@+id/genre2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal" />
+
+    <TextView
+        android:id="@+id/genre3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/genre2"
+        android:layout_marginTop="150dp"
+        android:text="Classics" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookListRv5"
+        android:layout_below="@+id/genre3"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal" />
+
+    <TextView
+        android:id="@+id/genre4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/genre3"
+        android:layout_marginTop="150dp"
+        android:text="Romance" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookListRv6"
+        android:layout_below="@+id/genre4"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="1dp"
+        android:orientation="horizontal" />
+
+    <TextView
+        android:id="@+id/genre5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/genre4"
+        android:layout_marginTop="150dp"
+        android:text="Comics" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookListRv7"
+        android:layout_below="@+id/genre5"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginTop="1dp"
@@ -156,3 +208,4 @@
 
 
 </RelativeLayout>
+</ScrollView>
