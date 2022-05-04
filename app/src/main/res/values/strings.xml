@@ -6,7 +6,10 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <string name="message_hint">Say anything</string>
+    <string name="send">Send</string>
+    <string name="profile_me">My Profile Pic</string>
+    <string name="profile_other">Other profile pic</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_search">SearchActivity</string>
@@ -16,4 +19,5 @@
     <string name="title_activity_blogpost">BlogpostActivity</string>
     <string name="title_activity_direct_messaging">DirectMessagingActivity</string>
     <string name="title_activity_comments">CommentsActivity</string>
+    <string name="title_activity_chat">ChatActivity</string>
 </resources>

@@ -18,7 +18,7 @@ import com.parse.SignUpCallback;
 public class LoginActivity extends AppCompatActivity {
 
     public static final String TAG = "LoginActivity";
-    private EditText etUsername;
+    public EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
     private Button btnSignUp;
@@ -40,9 +40,11 @@ public class LoginActivity extends AppCompatActivity {
                 Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
                 Log.i(TAG, "onClick signup button");
-//                String username = etUsername.getText().toString();
-//                String password = etPassword.getText().toString();
-//                signUpUser(username, password);
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
+                signUpUser(username, password);
+
+
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +54,10 @@ public class LoginActivity extends AppCompatActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 loginUser(username, password);
+
+
+
+
             }
         });
     }
@@ -82,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser(String username, String password) {
         Log.i(TAG, "Attempting to login user" + username);
         // todo: navigate to main activity if user has signed in properly
+
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
@@ -100,4 +107,5 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(this, HomeScreenActivity.class);
         startActivity(i);
     }
+
 }

@@ -323,8 +323,10 @@ public class HomeScreenActivity extends AppCompatActivity {
         messages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //GroupListActivity.start(this);
                 Intent i = new Intent(HomeScreenActivity.this, MessagingActivity.class);
                 startActivity(i);
+                //startActivity(new Intent(HomeScreenActivity.this, GroupListActivity.class));
             }
         });
 
