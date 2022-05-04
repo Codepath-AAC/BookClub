@@ -3,6 +3,7 @@ package com.example.bookclub;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,7 +19,7 @@ import com.example.bookclub.databinding.ActivityBookDetailBinding;
 
 public class BookDetailActivity extends AppCompatActivity {
 
-    private ImageView ivBookCover;
+    private ImageView ivBookCover, ivFavorite;
     private TextView tvTitle, tvAuthor;
     private Button backBtn;
     private Toolbar toolbar;
@@ -32,6 +33,7 @@ public class BookDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_book_detail);
 
         backBtn = findViewById(R.id.backbtn);
+        ivFavorite = findViewById(R.id.favoritesStar);
         ivBookCover = findViewById(R.id.ivBookCover);
         tvTitle = findViewById(R.id.tvTitle);
         tvAuthor = findViewById(R.id.tvAuthor);
@@ -54,6 +56,14 @@ public class BookDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(BookDetailActivity.this, HomeScreenActivity.class);
                 startActivity(i);
+            }
+        });
+
+        ivFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("BookDetail", "FAVORITED");
+                ivFavorite.setImageResource(R.drawable.ic_favorites);
             }
         });
 

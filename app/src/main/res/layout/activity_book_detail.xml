@@ -16,11 +16,24 @@
             app:popupTheme="@style/Theme.BookClub.PopupOverlay" />
 
     <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/favoritesStar"
+        android:clickable="true"
+        android:src="@drawable/ic_favorites_outline"
+        android:layout_marginTop="10dp"/>
+
+
+    <ImageView
         android:id="@+id/ivBookCover"
         android:layout_gravity="center"
         android:layout_width="280dp"
         android:layout_height="280dp"
         android:layout_marginTop="8dp"/>
+
+
+
+
 
     <TextView
         android:id="@+id/tvTitle"
